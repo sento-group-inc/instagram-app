@@ -1,118 +1,92 @@
-# React Instagram Clone
+# Instagram Clone App
 
-## Overview
-A web application built with React that replicates core Instagram functionality. This project features user authentication, real-time database integration, and a modern user interface.
+## 概要
+このプロジェクトはReactを使用したInstagramライクなWebアプリケーションです。認証機能、データベース連携、モダンなUIを備えた写真共有プラットフォームを提供します。
 
-## Setup
+## セットアップ手順
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-- Firebase account
+1. リポジトリのクローン
+    ```
+    git clone https://github.com/your-username/instagram-clone.git
+    cd instagram-clone
+    ```
 
-### Installation
-1. Clone the repository
-```
-git clone https://github.com/yourusername/react-instagram-clone.git
-cd react-instagram-clone
-```
+2. 依存関係のインストール
+    ```
+    npm install
+    ```
 
-2. Install dependencies
-```
-npm install
-```
+3. 環境変数の設定
+    - .env.exampleをコピーして.envファイルを作成
+    - 必要な環境変数を設定（APIキー、データベース接続情報など）
 
-3. Configure environment variables
-Create a .env file in the root directory and add:
-```
-REACT_APP_FIREBASE_API_KEY=your_api_key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
-REACT_APP_FIREBASE_PROJECT_ID=your_project_id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-REACT_APP_FIREBASE_APP_ID=your_app_id
-```
+4. アプリケーションの起動
+    ```
+    npm start
+    ```
 
-4. Start the development server
-```
-npm start
-```
+## 使用方法
 
-## Usage
-Access the application at http://localhost:3000
+1. アカウント作成またはログイン
+2. プロフィール設定
+3. 写真のアップロード
+4. 投稿へのいいね、コメント
+5. 他のユーザーのフォロー
 
-### Basic Features
-- Create an account/Login
-- Post photos with captions
-- Like and comment on posts
-- Follow other users
-- Edit profile
+## 主な機能
 
-## Features
+### 認証機能
+- ユーザー登録
+- ログイン/ログアウト
+- パスワードリセット
+- OAuth認証（Google, Facebook）
 
-### Authentication
-- Email/Password login
-- Google OAuth integration
-- Password reset functionality
-- User profile management
+### データベース連携
+- 投稿の保存
+- ユーザー情報の管理
+- いいね・コメントの追跡
+- フォロー関係の管理
 
-### Database Integration
-- Real-time data updates
-- Image storage
-- User data management
-- Post interactions tracking
+### UI機能
+- レスポンシブデザイン
+- ダークモード
+- 無限スクロール
+- 画像編集ツール
+- リアルタイム通知
 
-### User Interface
-- Responsive design
-- Instagram-like feed
-- Story feature
-- Direct messaging
-- Explore page
+## 開発ガイド
 
-## Development Guide
-
-### Project Structure
+### プロジェクト構造
 ```
 src/
   ├── components/
   ├── pages/
-  ├── contexts/
-  ├── hooks/
   ├── services/
+  ├── hooks/
+  ├── context/
   ├── utils/
-  ├── assets/
   └── styles/
 ```
 
-### Key Technologies
-- React.js
-- Firebase Authentication
-- Cloud Firestore
-- Firebase Storage
-- React Router
-- Styled Components
+### コーディング規約
+- ESLintとPrettierを使用
+- コンポーネントはFunction Componentで実装
+- スタイリングはStyled Componentsを使用
 
-### Testing
-Run tests:
+### テスト
 ```
-npm test
+npm run test
 ```
 
-### Building for Production
+### ビルド
 ```
 npm run build
 ```
 
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Push to the branch
-5. Open a pull request
+## ライセンス
+MIT License
 
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Copyright (c) 2024 Your Name
 
-## Contact
-Your Name - your.email@example.com
-Project Link: https://github.com/yourusername/react-instagram-clone
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files.
