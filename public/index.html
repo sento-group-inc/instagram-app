@@ -5,28 +5,35 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Instagram-like web application created using React" />
+    <meta
+      name="description"
+      content="Instagram-like social media application"
+    />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!-- Font Awesome for UI icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <title>Instagram Clone</title>
-    <!-- Error handling for unsupported JavaScript -->
-    <noscript>
-      <div style="text-align: center; padding: 20px;">
-        You need to enable JavaScript to run this app.
-      </div>
-    </noscript>
+    <!-- Error handling for script loading -->
+    <script>
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo);
+        return false;
+      };
+    </script>
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Root element for React application -->
     <div id="root"></div>
-    <!-- Error boundary container for React -->
-    <div id="error-container"></div>
+    <!-- Modal container for popups -->
+    <div id="modal-root"></div>
     <!-- Loading indicator container -->
     <div id="loader"></div>
-    <!-- Modal container for auth and other popups -->
-    <div id="modal-root"></div>
+    <!-- Error boundary fallback container -->
+    <div id="error-boundary"></div>
   </body>
 </html>

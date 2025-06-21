@@ -1,3 +1,4 @@
+// App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { auth } from './firebase/config';
@@ -7,25 +8,21 @@ import { onAuthStateChanged } from 'firebase/auth';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Register from './pages/Register';
+import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import CreatePost from './pages/CreatePost';
-
-// Styles
-import './App.css';
+import NotFound from './pages/NotFound';
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Auth state observer
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
     });
 
-    // Cleanup subscription
     return () => unsubscribe();
   }, []);
 
@@ -48,8 +45,8 @@ function App() {
               element={!user ? <Login /> : <Navigate to="/" />} 
             />
             <Route 
-              path="/register" 
-              element={!user ? <Register /> : <Navigate to="/" />} 
+              path="/signup" 
+              element={!user ? <Signup /> : <Navigate to="/" />} 
             />
             <Route 
               path="/profile" 
@@ -59,6 +56,7 @@ function App() {
               path="/create" 
               element={user ? <CreatePost user={user} /> : <Navigate to="/login" />} 
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </div>

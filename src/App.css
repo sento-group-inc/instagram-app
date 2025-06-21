@@ -1,29 +1,36 @@
-/* Instagram-like App - Main Styling */
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body and Root Styles */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #fafafa;
-  color: #262626;
-}
-
+/* Main app styles */
 .app {
+  text-align: center;
   min-height: 100vh;
-  padding: 20px;
+  background-color: #fafafa;
 }
 
-/* Authentication Components */
+/* Navigation styles */
+.nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 12px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 975px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Authentication forms */
 .auth-container {
   max-width: 350px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 20px;
-  background: white;
+  background-color: #ffffff;
   border: 1px solid #dbdbdb;
   border-radius: 3px;
 }
@@ -35,44 +42,25 @@ body {
 }
 
 .auth-input {
-  padding: 12px;
+  padding: 9px 0 7px 8px;
   border: 1px solid #dbdbdb;
   border-radius: 3px;
-  font-size: 14px;
+  background-color: #fafafa;
 }
 
-.auth-button {
-  background-color: #0095f6;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.auth-button:hover {
-  background-color: #0081d6;
-}
-
-/* Feed and Post Components */
-.feed-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
+/* Post styles */
 .post {
-  background: white;
+  max-width: 614px;
+  margin: 0 auto 24px;
+  background-color: #ffffff;
   border: 1px solid #dbdbdb;
-  margin-bottom: 20px;
   border-radius: 3px;
 }
 
 .post-header {
-  padding: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  padding: 14px 16px;
 }
 
 .post-image {
@@ -81,120 +69,90 @@ body {
 }
 
 .post-actions {
-  padding: 16px;
+  padding: 8px 16px;
 }
 
-/* User Interface Elements */
-.avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.username {
+/* Button styles */
+.button {
+  background-color: #0095f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 9px;
   font-weight: 600;
-  color: #262626;
-  text-decoration: none;
+  cursor: pointer;
 }
 
-/* Loading States */
+.button:hover {
+  background-color: #1877f2;
+}
+
+/* Error message styles */
+.error {
+  color: #ed4956;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+/* Loading indicator */
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  height: 100px;
 }
 
-.loading-spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #0095f6;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Error States */
-.error-message {
-  color: #ed4956;
-  padding: 10px;
-  text-align: center;
-  background-color: #ffeaea;
-  border-radius: 4px;
-  margin: 10px 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .feed-container {
-    max-width: 100%;
+/* Responsive design */
+@media (max-width: 614px) {
+  .post {
+    margin: 0;
+    border-left: none;
+    border-right: none;
   }
   
   .auth-container {
-    max-width: 100%;
-    margin: 0 10px;
+    margin: 20px;
   }
 }
 
-/* Navigation */
-.nav {
-  background: white;
-  border-bottom: 1px solid #dbdbdb;
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* User profile styles */
+.profile {
+  max-width: 935px;
+  margin: 88px auto 0;
+  padding: 0 20px;
 }
 
-.nav-content {
-  max-width: 975px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.profile-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  margin-bottom: 44px;
 }
 
-/* Interactive Elements */
-.button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* Grid layout for photos */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 28px;
 }
 
-.like-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.like-button:hover {
-  opacity: 0.7;
-}
-
-/* Utility Classes */
-.hidden {
-  display: none;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .app {
+    background-color: #000000;
+  }
+  
+  .nav,
+  .post,
+  .auth-container {
+    background-color: #121212;
+    border-color: #262626;
+  }
+  
+  .auth-input {
+    background-color: #262626;
+    border-color: #262626;
+    color: #ffffff;
+  }
 }
