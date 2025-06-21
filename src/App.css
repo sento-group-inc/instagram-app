@@ -1,66 +1,98 @@
-/* Main App Styles */
-.app {
-  text-align: center;
-  min-height: 100vh;
-  background-color: #fafafa;
+/* App.css - Main styling for Instagram-like app */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Navigation Bar */
-.navbar {
-  background-color: #ffffff;
-  padding: 12px 0;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #fafafa;
+  color: #262626;
+}
+
+/* Layout containers */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navigation styles */
+.nav-bar {
+  background-color: white;
   border-bottom: 1px solid #dbdbdb;
+  padding: 12px 0;
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
 
-/* Auth Forms */
+.nav-content {
+  max-width: 975px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Authentication forms */
 .auth-container {
   max-width: 350px;
-  margin: 80px auto;
+  margin: 100px auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: white;
   border: 1px solid #dbdbdb;
   border-radius: 3px;
 }
 
-.auth-input {
-  width: 100%;
-  padding: 8px;
-  margin: 8px 0;
-  border: 1px solid #dbdbdb;
-  border-radius: 3px;
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.auth-button {
-  width: 100%;
-  padding: 8px;
+/* Input fields */
+.input-field {
+  padding: 12px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+
+/* Buttons */
+.button-primary {
   background-color: #0095f6;
   color: white;
+  padding: 8px 16px;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
+  font-weight: 600;
 }
 
-.auth-button:hover {
+.button-primary:hover {
   background-color: #0081d6;
 }
 
-/* Post Feed */
-.post-container {
-  max-width: 600px;
-  margin: 20px auto;
-  background-color: #ffffff;
+/* Post styles */
+.post-card {
+  background-color: white;
   border: 1px solid #dbdbdb;
   border-radius: 3px;
+  margin-bottom: 20px;
 }
 
 .post-header {
   padding: 16px;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .post-image {
@@ -69,108 +101,67 @@
 }
 
 .post-actions {
-  padding: 12px;
+  padding: 16px;
   display: flex;
   gap: 16px;
 }
 
-/* User Profile */
+/* User profile */
 .profile-container {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 20px;
+  max-width: 935px;
+  margin: 88px auto 0;
+  padding: 0 20px;
 }
 
 .profile-header {
-  display: flex;
-  gap: 80px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
   margin-bottom: 44px;
 }
 
-.profile-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .nav-content {
+    padding: 0 10px;
+  }
 }
 
-/* Error Messages */
+/* Error states */
 .error-message {
   color: #ed4956;
-  margin: 10px 0;
   font-size: 14px;
+  margin: 10px 0;
 }
 
-/* Loading States */
+/* Loading states */
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  height: 100px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .post-container {
-    margin: 0;
-    border: none;
-  }
-
-  .profile-header {
-    flex-direction: column;
-    gap: 20px;
-  }
+/* Animation classes */
+.fade-enter {
+  opacity: 0;
 }
 
-/* Interactive Elements */
-.like-button {
-  cursor: pointer;
-  transition: all 0.2s ease;
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
 }
 
-.like-button:hover {
-  transform: scale(1.1);
+.fade-exit {
+  opacity: 1;
 }
 
-/* Form Elements */
-.form-input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #dbdbdb;
-  border-radius: 3px;
-}
-
-.form-button {
-  padding: 8px 16px;
-  background-color: #0095f6;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.form-button:disabled {
-  background-color: #b2dffc;
-  cursor: not-allowed;
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 100%;
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
 }

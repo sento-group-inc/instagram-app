@@ -1,3 +1,4 @@
+// Web Vitals Reporting Function
 const reportWebVitals = onPerfEntry => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
@@ -11,7 +12,8 @@ const reportWebVitals = onPerfEntry => {
       getLCP(onPerfEntry);
       // Time to First Byte
       getTTFB(onPerfEntry);
-    }).catch(error => {
+    })
+    .catch(error => {
       console.error('Error loading web-vitals:', error);
     });
   }

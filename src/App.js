@@ -1,68 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { auth } from './firebase-config';
-import { onAuthStateChanged } from 'firebase/auth';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 
-// Components
+// Page components
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+
+// UI components
 import Navbar from './components/Navbar';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import Feed from './components/Feed';
-import Profile from './components/Profile';
-import CreatePost from './components/CreatePost';
-import NotFound from './components/NotFound';
-
-// Styles
-import './App.css';
+import ErrorBoundary from './components/ErrorBoundary';
+import Toast from './components/Toast';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Auth state observer
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-
-    // Cleanup subscription
-    return () => unsubscribe();
-  }, []);
-
-  if (loading) {
-    return <div className="loading">Loading...</div>;
-  }
-
   return (
-    <Router>
-      <div className="app">
-        {user && <Navbar user={user} />}
-        <Routes>
-          <Route
-            path="/"
-            element={user ? <Feed /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/login"
-            element={!user ? <Login /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/register"
-            element={!user ? <Register /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/profile/:id"
-            element={user ? <Profile /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/create"
-            element={user ? <CreatePost /> : <Navigate to="/login" />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <ErrorBoundary>
+          <div className="app-container">
+            <Navbar />
+            <Toast />
+            <main className="main-content">
+              <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute exact path="/profile/:userId" component={Profile} />
+                <Route path="*" component={NotFound} />
+              </Switch>
+            </main>
+          </div>
+        </ErrorBoundary>
+      </Router>
+    </AuthProvider>
   );
 }
 
