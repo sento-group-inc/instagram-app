@@ -1,0 +1,13 @@
+Project Generation Summary
+=========================
+
+Project Type: webapp
+Tech Stack: react
+Features: auth, database, ui
+Generation Mode: complete_project
+Generated At: 2025-06-21 04:24:01
+
+Status: SUCCESS
+
+Files Created:
+- ./README.md\n- ./package.json\n- ./.git/config\n- ./.git/description\n- ./.git/shallow\n- ./.git/FETCH_HEAD\n- ./.git/config.worktree\n- ./.git/HEAD\n- ./.git/index\n- ./.git/logs/HEAD\n- ./.git/logs/refs/heads/main\n- ./.git/logs/refs/remotes/origin/main\n- ./.git/logs/refs/remotes/origin/HEAD\n- ./.git/hooks/pre-push.sample\n- ./.git/hooks/prepare-commit-msg.sample\n- ./.git/hooks/pre-merge-commit.sample\n- ./.git/hooks/pre-receive.sample\n- ./.git/hooks/commit-msg.sample\n- ./.git/hooks/fsmonitor-watchman.sample\n- ./.git/hooks/pre-commit.sample\n- ./.git/hooks/update.sample\n- ./.git/hooks/sendemail-validate.sample\n- ./.git/hooks/post-update.sample\n- ./.git/hooks/pre-applypatch.sample\n- ./.git/hooks/applypatch-msg.sample\n- ./.git/hooks/pre-rebase.sample\n- ./.git/hooks/push-to-checkout.sample\n- ./.git/refs/heads/main\n- ./.git/refs/remotes/origin/main\n- ./.git/refs/remotes/origin/HEAD\n- ./.git/objects/b9/966b0ad95cd8e4569ff512d4ac21bc1cb682f7\n- ./.git/objects/ec/c7998c3b7d1c70ae450c94062873e6668f9062\n- ./.git/objects/7b/004e51045ae62398e7e48ebb556ab5c9a7d319\n- ./.git/objects/b4/06fc50e08f2ac8795997327222908cc47e33a1\n- ./.git/objects/5c/0cc96875ebdd73c20e11214eaf0cb0469ab6ae\n- ./.git/objects/d5/735320e9be90abc2f4d9fdc85f45f8d9d53b64\n- ./.git/objects/8c/2a97cc2de2856314eedce8e9c7521877363317\n- ./.git/info/exclude\n- ./.github/workflows/claude-code-generator4.yml\n- ./public/index.html\n- ./src/index.js\n- ./src/index.css\n- ./src/App.js\n- ./src/App.css\n- ./src/reportWebVitals.js\n
